@@ -14,7 +14,7 @@ public class Go {
         boolean clickable = false;
 
         ChromeOptions options = new ChromeOptions();
-        String chromeProfile = "C:\\Users\\sebas\\AppData\\Local\\Google\\Chrome\\ThirdUserData";
+        String chromeProfile = "C:\\Users\\sebas\\AppData\\Local\\Google\\Chrome\\BotUserData";
         options.addArguments("user-data-dir=" + chromeProfile);
         options.addArguments("--start-maximized");
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));

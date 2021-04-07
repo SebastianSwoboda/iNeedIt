@@ -29,10 +29,10 @@ public class BuyTheGoods {
                     driver.navigate().refresh();
                     wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("addToCartButton")));
                 }
-                driver.findElement(By.id("addToCartButton")).click();
+                driver.findElement(By.id("addToCartButton")).sendKeys(Keys.RETURN);
                 driver.get(config.cartPage);
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Jetzt kaufen']")));
-                driver.findElement(By.xpath("//button[text()='Jetzt kaufen']")).click();
+                driver.findElement(By.xpath("//button[text()='Jetzt kaufen']")).sendKeys(Keys.RETURN);
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Deine Bestellung war erfolgreich.')]")));
                 if (driver.getPageSource().contains("Deine Bestellung war erfolgreich.")) {
                     purchasedSuccessfully = true;
@@ -40,6 +40,7 @@ public class BuyTheGoods {
             } catch (NoSuchElementException | TimeoutException | InterruptedException e) {
             }
         } while (!purchasedSuccessfully);
+        System.out.println("done");
     }
 
     public void amazon() {
